@@ -9,11 +9,11 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
 
-  const date = new Date("february 03 2022");
+  const date = new Date("february 14 2025");
   date.setDate(date.getDate() + count);
 
   return (
-    <div>
+    <div className="holahola">
       <div>
         <button onClick={() => setStep((c) => c - 1)}>-</button>
         <span>Step: {step}</span>
@@ -30,7 +30,9 @@ function Counter() {
           {count === 0
             ? "Today is "
             : count > 0
-            ? `${count} days from today is `
+            ? `${count} ${
+                count === 1 || count === -1 ? "day" : "days"
+              }  from today is `
             : `${Math.abs(count)} days ago was `}
         </span>
         <span>{date.toDateString()}</span>
